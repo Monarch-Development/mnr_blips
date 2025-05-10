@@ -5,4 +5,3 @@ Blips management resource for FiveM servers with blip presets for various map cr
 
 ## Links
 - [Discord](https://discord.gg/RxpNTx2YKZ) for support and more free scripts.
-- [Docs](https://melons-development.gitbook.io/melons-development/resources/melons-blips)
