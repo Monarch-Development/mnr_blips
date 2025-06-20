@@ -5,7 +5,7 @@ lua54 "yes"
 name "mnr_blips"
 description "The definitive resource for blips management"
 author "IlMelons"
-version "1.0.0"
+version "1.0.1"
 repository "https://github.com/Monarch-Development/mnr_blips"
 
 shared_scripts {
@@ -13,10 +13,13 @@ shared_scripts {
 }
 
 client_scripts {
-    "config/client.lua",
     "client/*.lua",
 }
 
 server_scripts {
     "server/*.lua",
+}
+
+files {
+    "config/*.lua",
 }

@@ -1,10 +1,11 @@
-local Config = lib.load("config.client")
-local Blips = {}
+local blips = lib.load("config.config")
+local BlipList = {}
 
 local function DeleteBlip(blipID)
-    RemoveBlip(Blips[blipID])
-    Blips[blipID] = nil
+    RemoveBlip(BlipList[blipID])
+    BlipList[blipID] = nil
 end
+
 exports("DeleteBlip", DeleteBlip)
 
 local function CreateBlip(blipID, data)
@@ -22,8 +23,9 @@ local function CreateBlip(blipID, data)
         EndTextCommandSetBlipName(blip)
     end
 
-    Blips[blipID] = blip
+    BlipList[blipID] = blip
 end
+
 exports("CreateBlip", CreateBlip)
 
 local function CreateMultiBlips(blipID, data)
@@ -43,18 +45,10 @@ local function CreateMultiBlips(blipID, data)
     end
 end
 
-local function CreateBlips()
-    for blipID, blipData in pairs(Config) do
-        if blipData.coords then
-            CreateBlip(blipID, blipData)
-        elseif blipData.points then
-            CreateMultiBlips(blipID, blipData)
-        end
+for blipID, blipData in pairs(Config) do
+    if blipData.coords then
+        CreateBlip(blipID, blipData)
+    elseif blipData.points then
+        CreateMultiBlips(blipID, blipData)
     end
 end
-
-AddEventHandler("onClientResourceStart", function(resourceName)
-    local scriptName = cache.resource or GetCurrentResourceName()
-    if resourceName ~= scriptName then return end
-    CreateBlips()
-end)
