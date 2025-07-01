@@ -45,7 +45,7 @@ local function CreateMultiBlips(blipID, data)
     end
 end
 
-for blipID, blipData in pairs(Config) do
+for blipID, blipData in pairs(blips) do
     if blipData.coords then
         CreateBlip(blipID, blipData)
     elseif blipData.points then
