@@ -5,7 +5,7 @@ lua54 "yes"
 name "mnr_blips"
 description "The definitive resource for blips management"
 author "IlMelons"
-version "1.0.1"
+version "1.0.2"
 repository "https://github.com/Monarch-Development/mnr_blips"
 
 shared_scripts {
