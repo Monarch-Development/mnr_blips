@@ -1,5 +1,3 @@
---- [BETA] Blip Class Experiment
-
 local blip = {}
 blip.__index = blip
 
