@@ -3,17 +3,16 @@ local blips = lib.load('config.config')
 
 local blipList = {}
 
-local function CreateBlip(blipId, data)
-    local newBlip = blipClass:new()
-    
-    newBlip:set(data)
-    blipList[blipId] = newBlip
+local function CreateBlip(id, data)
+    local blip = blipClass:new(data)
+
+    blipList[id] = blip
 end
 
-local function CreateMultiBlips(blipId, data)
+local function CreateMultiBlips(id, data)
     local num = 1
     for _, point in ipairs(data.points) do
-        local uniqueId = ('%s%d'):format(blipId, num)
+        local uniqueId = ('%s%d'):format(id, num)
         
         CreateBlip(uniqueId, {
             coords = point,
@@ -28,15 +27,6 @@ local function CreateMultiBlips(blipId, data)
         
         num += 1
     end
-end
-
----@deprecated
-local function DeleteBlip(blipId)
-    local blipCache = blipList[blipId]
-    if not blipCache then return end
-    
-    blipCache:delete()
-    blipList[blipId] = nil
 end
 
 for id, data in pairs(blips) do

@@ -4,14 +4,14 @@
 
 ---@diagnostic disable
 
-local ExpectedName = GetResourceMetadata(GetCurrentResourceName(), "name")
+local ExpectedName = GetResourceMetadata(GetCurrentResourceName(), 'name')
 
-lib.versionCheck(("Monarch-Development/%s"):format(ExpectedName))
+lib.versionCheck(('Monarch-Development/%s'):format(ExpectedName))
 
-AddEventHandler("onResourceStart", function(resourceName)
+AddEventHandler('onResourceStart', function(resourceName)
     if GetCurrentResourceName() ~= resourceName then return end
 
     if GetCurrentResourceName() ~= ExpectedName then
-        print(("^1[WARNING]: The resource name is incorrect. Please set it to %s.^0"):format(ExpectedName))
+        print(('^1[WARNING]: The resource name is incorrect. Please set it to %s.^0'):format(ExpectedName))
     end
 end)
