@@ -8,6 +8,11 @@ author "IlMelons"
 version "1.0.2"
 repository "https://github.com/Monarch-Development/mnr_blips"
 
+files {
+    'init.lua',
+    "config/*.lua",
+}
+
 shared_scripts {
     "@ox_lib/init.lua",
 }
@@ -18,8 +23,4 @@ client_scripts {
 
 server_scripts {
     "server/*.lua",
-}
-
-files {
-    "config/*.lua",
 }

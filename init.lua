@@ -41,3 +41,5 @@ function blip:delete()
     RemoveBlip(self.handle)
     self.handle = nil
 end
+
+return blip
