@@ -5,11 +5,11 @@ function blipClass:new(data)
     local self = setmetatable({}, blipClass)
     self.handle = AddBlipForCoord(data.coords.x, data.coords.y, data.coords.z)
 
-    if data.alpha then SetBlipAlpha(self.handle, data.alpha) end
     if data.sprite then SetBlipSprite(self.handle, data.sprite) end
     if data.color then SetBlipColour(self.handle, data.color) end
     if data.scale then SetBlipScale(self.handle, data.scale) end
-
+    
+    SetBlipAlpha(self.handle, data.alpha or 255)
     SetBlipDisplay(self.handle, data.display or 2)
     SetBlipAsShortRange(self.handle, data.range or true)
 

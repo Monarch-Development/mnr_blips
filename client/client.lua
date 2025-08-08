@@ -16,12 +16,12 @@ local function CreateMultiBlips(id, data)
         
         CreateBlip(uniqueId, {
             coords = point,
-            alpha = data.alpha,
             sprite = data.sprite,
             color = data.color,
-            range = data.range,
-            display = data.display,
             scale = data.scale,
+            alpha = data.alpha,
+            display = data.display,
+            range = data.range,
             label = data.label,
         })
         
