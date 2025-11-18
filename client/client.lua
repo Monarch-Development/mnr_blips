@@ -1,20 +1,10 @@
-local blipClass = lib.load('init')
-local blips = lib.load('config.config')
-
-local blipList = {}
-
-local function CreateBlip(id, data)
-    local blip = blipClass:new(data)
-
-    blipList[id] = blip
+local function CreateBlip(data)
+    Blip:new(data)
 end
 
-local function CreateMultiBlips(id, data)
-    local num = 1
+local function CreateMultiBlips(data)
     for _, point in ipairs(data.points) do
-        local uniqueId = ('%s%d'):format(id, num)
-        
-        CreateBlip(uniqueId, {
+        CreateBlip({
             coords = point,
             sprite = data.sprite,
             color = data.color,
@@ -24,15 +14,13 @@ local function CreateMultiBlips(id, data)
             range = data.range,
             label = data.label,
         })
-        
-        num += 1
     end
 end
 
-for id, data in pairs(blips) do
+for _, data in ipairs(config.blips) do
     if data.coords then
-        CreateBlip(id, data)
+        CreateBlip(data)
     elseif data.points then
-        CreateMultiBlips(id, data)
+        CreateMultiBlips(data)
     end
 end
